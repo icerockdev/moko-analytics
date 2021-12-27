@@ -18,10 +18,11 @@ kotlin {
 
 dependencies {
     commonMainApi(libs.coroutines)
-
+    commonMainApi(libs.mokoMvvmCore)
     commonMainApi(projects.analytics)
 }
 
 framework {
     export(projects.analytics)
+    export(libs.mokoMvvmCore)
 }

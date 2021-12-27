@@ -4,9 +4,11 @@
 
 plugins {
     id("android-app-convention")
+    id("kotlin-parcelize")
 }
 
 android {
+    buildFeatures.viewBinding = true
     defaultConfig {
         applicationId = "dev.icerock.moko.samples.analytics"
 
@@ -18,6 +20,9 @@ android {
 dependencies {
     implementation(libs.appCompat)
     implementation(libs.material)
+    implementation(libs.mokoMvvmViewBinding)
+    implementation(libs.amplitudude)
 
     implementation(projects.sample.mppLibrary)
 }
+
