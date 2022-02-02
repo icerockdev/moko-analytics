@@ -17,9 +17,10 @@ kotlin {
 }
 
 dependencies {
-    commonMainApi(libs.coroutines)
     commonMainApi(libs.mokoMvvmCore)
     commonMainApi(projects.analytics)
+
+    commonMainImplementation(libs.napier)
 }
 
 framework {

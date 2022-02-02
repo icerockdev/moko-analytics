@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.amplitude.api.Amplitude
 import com.amplitude.api.AmplitudeClient
 import com.icerockdev.app.databinding.ActivityMainBinding
-import com.icerockdev.library.AnalyticViewModel
+import com.icerockdev.library.presentation.AnalyticViewModel
 import dev.icerock.moko.analytics.library.analytics.di.AnalyticsTracker
 import dev.icerock.moko.analytics.library.analytics.model.SimpleEvent
 import dev.icerock.moko.mvvm.createViewModelFactory
@@ -44,15 +44,12 @@ class MainActivity() :
         return createViewModelFactory { AnalyticViewModel(eventsDispatcher = eventsDispatcherOnMain()) }
     }
 
-    override fun sendEvent() {
-        analyticsTracker.sendEvent(SimpleEvent(SIMPLE_EVENT))
+    override fun sendEvent(event: String) {
+        analyticsTracker.sendEvent(SimpleEvent(event))
     }
 
     companion object {
         //Add your token for amplitude company
         const val AMPLITUDE_TOKEN = ""
-
-        const val SIMPLE_EVENT = "simple event"
     }
-
 }

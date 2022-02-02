@@ -9,10 +9,12 @@ mokoTestVersion = "0.4.0"
 mokoMvvmVersion = "0.11.0"
 amplitudeVersion = "2.34.1"
 mokoAnalyticsVersion = "0.1.0"
+napierVersion = "1.5.0"
 
 [libraries]
 appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidAppCompatVersion" }
 material = { module = "com.google.android.material:material", version.ref = "materialDesignVersion" }
+napier = { module = "io.github.aakira:napier", version.ref = "napierVersion"}
 lifecycle = { module = "androidx.lifecycle:lifecycle-extensions", version.ref = "androidLifecycleVersion" }
 coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
 mokoTest = { module = "dev.icerock.moko:test-core", version.ref = "mokoTestVersion" }
