@@ -30,7 +30,6 @@ class MainActivity() :
         amplitudeClient = Amplitude.getInstance()
             .initialize(applicationContext, AMPLITUDE_TOKEN)
             .enableForegroundTracking(application)
-
         binding.buttonEvent.setOnClickListener {
             viewModel.onSendEvent()
         }
