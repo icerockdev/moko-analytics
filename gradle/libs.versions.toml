@@ -8,8 +8,8 @@ coroutinesVersion = "1.5.0-native-mt"
 mokoTestVersion = "0.4.0"
 mokoMvvmVersion = "0.11.0"
 amplitudeVersion = "2.34.1"
-mokoAnalyticsVersion = "0.1.0"
 napierVersion = "1.5.0"
+mokoAnalyticsVersion = "0.1.0"
 
 [libraries]
 appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidAppCompatVersion" }
