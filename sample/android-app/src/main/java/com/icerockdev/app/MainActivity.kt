@@ -10,14 +10,14 @@ import com.amplitude.api.Amplitude
 import com.amplitude.api.AmplitudeClient
 import com.icerockdev.app.databinding.ActivityMainBinding
 import com.icerockdev.library.presentation.AnalyticViewModel
-import dev.icerock.moko.analytics.library.analytics.di.AnalyticsTracker
-import dev.icerock.moko.analytics.library.analytics.model.SimpleEvent
+import dev.icerock.moko.analytics.library.AnalyticsTracker
+import dev.icerock.moko.analytics.library.SimpleEvent
 import dev.icerock.moko.mvvm.createViewModelFactory
 import dev.icerock.moko.mvvm.dispatcher.eventsDispatcherOnMain
 import dev.icerock.moko.mvvm.viewbinding.MvvmEventsActivity
 
 
-class MainActivity() :
+class MainActivity :
     MvvmEventsActivity<ActivityMainBinding, AnalyticViewModel, AnalyticViewModel.EventsListener>(),
     AnalyticViewModel.EventsListener {
     override val viewModelClass: Class<AnalyticViewModel> = AnalyticViewModel::class.java
@@ -27,9 +27,11 @@ class MainActivity() :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         amplitudeClient = Amplitude.getInstance()
             .initialize(applicationContext, AMPLITUDE_TOKEN)
             .enableForegroundTracking(application)
+
         binding.buttonEvent.setOnClickListener {
             viewModel.onSendEvent()
         }
@@ -40,7 +42,11 @@ class MainActivity() :
     }
 
     override fun viewModelFactory(): ViewModelProvider.Factory {
-        return createViewModelFactory { AnalyticViewModel(eventsDispatcher = eventsDispatcherOnMain()) }
+        return createViewModelFactory {
+            AnalyticViewModel(
+                eventsDispatcher = eventsDispatcherOnMain()
+            )
+        }
     }
 
     override fun sendEvent(event: String) {
