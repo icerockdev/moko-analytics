@@ -7,9 +7,14 @@ androidCoreTestingVersion = "2.1.0"
 coroutinesVersion = "1.5.0-native-mt"
 mokoTestVersion = "0.4.0"
 mokoMvvmVersion = "0.11.0"
-amplitudeVersion = "2.34.1"
 napierVersion = "1.5.0"
 mokoAnalyticsVersion = "0.1.0"
+
+#analytic libs
+amplitudeVersion = "2.34.1"
+firebaseCoreVersion = "17.0.1"
+firebaseBomVersion = "30.3.2"
+tagmanagerVersion = "17.0.0"
 
 [libraries]
 appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidAppCompatVersion" }
@@ -21,5 +26,11 @@ mokoTest = { module = "dev.icerock.moko:test-core", version.ref = "mokoTestVersi
 mokoMvvmCore = { module = "dev.icerock.moko:mvvm-core", version.ref = "mokoMvvmVersion" }
 mokoMvvmViewBinding = { module = "dev.icerock.moko:mvvm-viewbinding", version.ref = "mokoMvvmVersion" }
 mokoMvvmDataBinding = { module = "dev.icerock.moko:mvvm-databinding", version.ref = "mokoMvvmVersion" }
-amplitudude = { module = "com.amplitude:android-sdk", version.ref = "amplitudeVersion" }
 mokoAnalytics = { module = "dev.icerock.moko:analytics", version.ref = "mokoAnalyticsVersion" }
+
+#Analtyics
+amplitudude = { module = "com.amplitude:android-sdk", version.ref = "amplitudeVersion" }
+firebase = { module = "com.google.firebase:firebase-core", version.ref = "firebaseCoreVersion" }
+firebaseBom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBomVersion" }
+firebaseAnalytic = { module = "com.google.firebase:firebase-analytics", version.ref = "firebaseCoreVersion" }
+tagManager = { module = "com.google.android.gms:play-services-tagmanager", version.ref = "tagmanagerVersion" }

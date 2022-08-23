@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.amplitude.api.Amplitude
 import com.amplitude.api.AmplitudeClient
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.icerockdev.app.databinding.ActivityMainBinding
 import com.icerockdev.library.presentation.AnalyticViewModel
 import dev.icerock.moko.analytics.library.AnalyticsTracker
@@ -16,7 +17,6 @@ import dev.icerock.moko.mvvm.createViewModelFactory
 import dev.icerock.moko.mvvm.dispatcher.eventsDispatcherOnMain
 import dev.icerock.moko.mvvm.viewbinding.MvvmEventsActivity
 
-
 class MainActivity :
     MvvmEventsActivity<ActivityMainBinding, AnalyticViewModel, AnalyticViewModel.EventsListener>(),
     AnalyticViewModel.EventsListener {
@@ -24,16 +24,28 @@ class MainActivity :
 
     lateinit var amplitudeClient: AmplitudeClient
     lateinit var analyticsTracker: AnalyticsTracker
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //Init Firebase analytic
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
+
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "my_item_id")
+
+        //Init Amplitude analytic
         amplitudeClient = Amplitude.getInstance()
             .initialize(applicationContext, AMPLITUDE_TOKEN)
             .enableForegroundTracking(application)
 
-        binding.buttonEvent.setOnClickListener {
+        binding.buttonAmplitudeEvent.setOnClickListener {
             viewModel.onSendEvent()
+        }
+
+        binding.buttonFirebaseEvent.setOnClickListener {
+            firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
         }
     }
 
