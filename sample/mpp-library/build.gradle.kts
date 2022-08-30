@@ -20,7 +20,7 @@ dependencies {
     commonMainApi(libs.mokoMvvmCore)
     commonMainApi(projects.analyticsCore)
     commonMainApi(projects.analyticsAmplitude)
-    commonMainApi(projects.analyticsAppMetrica)
+    commonMainApi(projects.analyticsAppmetrica)
     commonMainApi(projects.analyticsFirebase)
 
     commonMainImplementation(libs.napier)
@@ -29,7 +29,7 @@ dependencies {
 framework {
     export(projects.analyticsCore)
     export(projects.analyticsAmplitude)
-    export(projects.analyticsAppMetrica)
+    export(projects.analyticsAppmetrica)
     export(projects.analyticsFirebase)
     export(libs.mokoMvvmCore)
 }
