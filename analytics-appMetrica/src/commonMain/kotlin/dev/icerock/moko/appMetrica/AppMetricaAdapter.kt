@@ -5,5 +5,5 @@
 package dev.icerock.moko.appMetrica
 
 interface AppMetricaAdapter {
-    fun sendEvent(appMetricaEvent: AppMetricaEvent)
+    fun sendAppMetricaEvent(appMetricaEvent: AppMetricaEvent)
 }

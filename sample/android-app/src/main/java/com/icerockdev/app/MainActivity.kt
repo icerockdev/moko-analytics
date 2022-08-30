@@ -11,7 +11,7 @@ import com.amplitude.api.AmplitudeClient
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.icerockdev.app.databinding.ActivityMainBinding
 import com.icerockdev.library.presentation.AnalyticViewModel
-import dev.icerock.moko.amplitude.AmplitudeSimpleEvent
+import dev.icerock.moko.firebase.AmplitudeSimpleEvent
 import dev.icerock.moko.analytics.AnalyticsTracker
 import dev.icerock.moko.mvvm.createViewModelFactory
 import dev.icerock.moko.mvvm.dispatcher.eventsDispatcherOnMain
