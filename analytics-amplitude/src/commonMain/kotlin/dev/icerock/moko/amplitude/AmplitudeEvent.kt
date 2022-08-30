@@ -5,7 +5,7 @@ package dev.icerock.moko.amplitude
 
 interface AmplitudeEvent
 
-class SimpleEvent(
+class AmplitudeSimpleEvent(
     val id: String? = null,
     val value: String? = null,
 ) : AmplitudeEvent

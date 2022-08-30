@@ -11,8 +11,8 @@ import com.amplitude.api.AmplitudeClient
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.icerockdev.app.databinding.ActivityMainBinding
 import com.icerockdev.library.presentation.AnalyticViewModel
-import dev.icerock.moko.analytics.library.AnalyticsTracker
-import dev.icerock.moko.analytics.library.SimpleEvent
+import dev.icerock.moko.amplitude.AmplitudeSimpleEvent
+import dev.icerock.moko.analytics.AnalyticsTracker
 import dev.icerock.moko.mvvm.createViewModelFactory
 import dev.icerock.moko.mvvm.dispatcher.eventsDispatcherOnMain
 import dev.icerock.moko.mvvm.viewbinding.MvvmEventsActivity
@@ -62,7 +62,7 @@ class MainActivity :
     }
 
     override fun sendEvent(event: String) {
-        analyticsTracker.sendEvent(SimpleEvent(event))
+        analyticsTracker.sendAmplitudeEvent(AmplitudeSimpleEvent(event))
     }
 
     companion object {

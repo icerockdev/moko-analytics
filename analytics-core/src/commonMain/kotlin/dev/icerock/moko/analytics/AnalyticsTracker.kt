@@ -9,7 +9,7 @@ import io.github.aakira.napier.Napier
 
 class AnalyticsTracker(private val adapterAmplitudes: List<AmplitudeAdapter>) {
 
-    fun sendEvent(event: AmplitudeEvent) {
+    fun sendAmplitudeEvent(event: AmplitudeEvent) {
         if (adapterAmplitudes.isEmpty()) {
             Napier.e("Analytics adapters is not found")
             return
