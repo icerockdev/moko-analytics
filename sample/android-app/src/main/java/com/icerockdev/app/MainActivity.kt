@@ -8,31 +8,44 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.amplitude.api.Amplitude
 import com.amplitude.api.AmplitudeClient
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.icerockdev.app.databinding.ActivityMainBinding
 import com.icerockdev.library.presentation.AnalyticViewModel
-import dev.icerock.moko.analytics.library.analytics.di.AnalyticsTracker
-import dev.icerock.moko.analytics.library.analytics.model.SimpleEvent
+import dev.icerock.moko.firebase.AmplitudeSimpleEvent
+import dev.icerock.moko.analytics.AnalyticsTracker
 import dev.icerock.moko.mvvm.createViewModelFactory
 import dev.icerock.moko.mvvm.dispatcher.eventsDispatcherOnMain
 import dev.icerock.moko.mvvm.viewbinding.MvvmEventsActivity
 
-
-class MainActivity() :
+class MainActivity :
     MvvmEventsActivity<ActivityMainBinding, AnalyticViewModel, AnalyticViewModel.EventsListener>(),
     AnalyticViewModel.EventsListener {
     override val viewModelClass: Class<AnalyticViewModel> = AnalyticViewModel::class.java
 
     lateinit var amplitudeClient: AmplitudeClient
     lateinit var analyticsTracker: AnalyticsTracker
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //Init Firebase analytic
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
+
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "my_item_id")
+
+        //Init Amplitude analytic
         amplitudeClient = Amplitude.getInstance()
             .initialize(applicationContext, AMPLITUDE_TOKEN)
             .enableForegroundTracking(application)
 
-        binding.buttonEvent.setOnClickListener {
+        binding.buttonAmplitudeEvent.setOnClickListener {
             viewModel.onSendEvent()
+        }
+
+        binding.buttonFirebaseEvent.setOnClickListener {
+            firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
         }
     }
 
@@ -41,11 +54,15 @@ class MainActivity() :
     }
 
     override fun viewModelFactory(): ViewModelProvider.Factory {
-        return createViewModelFactory { AnalyticViewModel(eventsDispatcher = eventsDispatcherOnMain()) }
+        return createViewModelFactory {
+            AnalyticViewModel(
+                eventsDispatcher = eventsDispatcherOnMain()
+            )
+        }
     }
 
     override fun sendEvent(event: String) {
-        analyticsTracker.sendEvent(SimpleEvent(event))
+        analyticsTracker.sendAmplitudeEvent(AmplitudeSimpleEvent(event))
     }
 
     companion object {

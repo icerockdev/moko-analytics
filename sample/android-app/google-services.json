@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1050156256766",
+    "project_id": "fir-analyticsmoko",
+    "storage_bucket": "fir-analyticsmoko.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050156256766:android:5b5998d4461d603271c4af",
+        "android_client_info": {
+          "package_name": "com.icerockdev.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050156256766-vckb56mbfs7mb1durf2tbp8jds3o3fp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa1ZpmsnEl-tDAkY4TXRgec89zejako9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050156256766-vckb56mbfs7mb1durf2tbp8jds3o3fp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

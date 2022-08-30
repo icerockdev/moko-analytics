@@ -9,17 +9,14 @@ dependencyResolutionManagement {
     repositories {
         mavenCentral()
         google()
-
-        jcenter {
-            content {
-                includeGroup("org.jetbrains.kotlinx")
-            }
-        }
     }
 }
 includeBuild("analytics-build-logic")
 
-include(":analytics")
+include(":analytics-core")
+include(":analytics-amplitude")
+include(":analytics-firebase")
+include(":analytics-appmetrica")
 include(":sample:android-app")
 include(":sample:mpp-library")
 include(":mpp-library:analytic-amplitude")

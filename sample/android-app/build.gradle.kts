@@ -5,6 +5,7 @@
 plugins {
     id("android-app-convention")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -22,6 +23,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.mokoMvvmViewBinding)
     implementation(libs.amplitudude)
+    implementation(libs.firebase)
+    implementation(libs.tagManager)
+    implementation(libs.firebaseBom)
+    implementation (libs.firebaseAnalytic)
 
     implementation(projects.sample.mppLibrary)
 }
