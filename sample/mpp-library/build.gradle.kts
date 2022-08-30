@@ -18,12 +18,18 @@ kotlin {
 
 dependencies {
     commonMainApi(libs.mokoMvvmCore)
-    commonMainApi(projects.analytics)
+    commonMainApi(projects.analyticsCore)
+    commonMainApi(projects.analyticsAmplitude)
+    commonMainApi(projects.analyticsAppMetrica)
+    commonMainApi(projects.analyticsFirebase)
 
     commonMainImplementation(libs.napier)
 }
 
 framework {
-    export(projects.analytics)
+    export(projects.analyticsCore)
+    export(projects.analyticsAmplitude)
+    export(projects.analyticsAppMetrica)
+    export(projects.analyticsFirebase)
     export(libs.mokoMvvmCore)
 }

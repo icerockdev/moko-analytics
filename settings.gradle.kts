@@ -13,7 +13,10 @@ dependencyResolutionManagement {
 }
 includeBuild("analytics-build-logic")
 
-include(":analytics")
+include(":analytics-core")
+include(":analytics-amplitude")
+include(":analytics-firebase")
+include(":analytics-appMetrica")
 include(":sample:android-app")
 include(":sample:mpp-library")
 include(":mpp-library:analytic-amplitude")

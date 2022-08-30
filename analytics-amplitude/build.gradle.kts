@@ -9,9 +9,6 @@ plugins {
 }
 
 dependencies {
-    commonMainApi(libs.coroutines)
-
     commonMainImplementation(libs.napier)
-
     commonTestImplementation(libs.mokoTest)
 }
